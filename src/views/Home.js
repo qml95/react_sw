@@ -6,15 +6,16 @@ import {
 } from 'react-router-dom';
 
 
-
-
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 
 class Home extends Component {
   render() {
     return (
         <main className="container">
-          <p>foo</p>
+          <Header />
+          <Footer />
 
         </main>
 
