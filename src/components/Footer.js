@@ -5,8 +5,13 @@ import React, { Component } from 'react';
 class Footer extends Component {
   render() {
     return (
-      <div>
-        pied
+      <div className='footer'>
+        <p>
+          app react star wars api
+        </p>
+        <p>
+          Par Quentin Morino-laudrin
+        </p>
       </div>
     );
   }

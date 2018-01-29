@@ -1,0 +1,42 @@
+body {
+  background-color: grey;
+}
+.header {
+  border: 1px solid black;
+}
+.header__title {
+  text-align: center;
+  color: red;
+  font-size: 45px;
+}
+.main-nav {
+  list-style: none;
+}
+
+.body-title {
+  text-align: center;
+  font-size: 25px;
+}
+.body-list{
+  list-style: none;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  -ms-align-items: center;
+  align-items: center;
+}
+.body-list-item {
+  width: 220px;
+  height: 165px;
+  overflow: hidden;
+  margin: 15px 5px;
+  border: 1px solid black;
+  text-align: center;
+}
+.body {
+  text-align: center;
+}
+
+.footer {
+  border: 1px solid black;
+}
