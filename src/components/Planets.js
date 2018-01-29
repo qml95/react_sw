@@ -21,10 +21,7 @@ class Planets extends Component {
           <li
             className='body-list-item'
             key={planet.name}>
-            <div>
-              <h4>{planet.name}</h4>
-              <p>climat : {planet.climate}</p>
-            </div>
+            <a>{planet.name}</a>
           </li>
         )
       })

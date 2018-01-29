@@ -20,7 +20,10 @@ class Personnage extends Component {
           <li
             className='body-list-item'
             key={perso.name}>
-            {perso.name}
+            <a href='#'>
+              {perso.name}
+            </a>
+
           </li>
         )
       })

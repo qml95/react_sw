@@ -27,11 +27,12 @@ body {
 }
 .body-list-item {
   width: 220px;
-  height: 165px;
+  height: 30px;
   overflow: hidden;
   margin: 15px 5px;
   border: 1px solid black;
   text-align: center;
+  padding-top: 10px;
 }
 .body {
   text-align: center;

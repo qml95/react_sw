@@ -17,8 +17,8 @@ import Footer from '../components/Footer';
 
 const navItems = [
   {
-    href: '0',
-    nat: '0',
+    href: '',
+    nat: '',
     text: 'Home'
   },
   {
@@ -49,7 +49,7 @@ class Home extends Component {
           navItems={navItems}
         />
         <Switch>
-          <Route exact path="/0" component={Accueil} />
+          <Route exact path="/" component={Accueil} />
           <Route path="/1" component={Personnage} />
           <Route path="/2" component={Vaisseaux} />
           <Route path="/3" component={Planets} />
