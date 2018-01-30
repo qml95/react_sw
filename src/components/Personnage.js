@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Modal from './Modal';
 
 
 class Personnage extends Component {
@@ -7,8 +7,14 @@ class Personnage extends Component {
     super();
     this.state = {
       personnages: [],
+      isOpen: false
     };
   }
+  toggleModal = () => {
+   this.setState({
+     isOpen: !this.state.isOpen
+   });
+ }
 
   componentDidMount() {
     fetch('https://swapi.co/api/people')
@@ -20,9 +26,9 @@ class Personnage extends Component {
           <li
             className='body-list-item'
             key={perso.name}>
-            <a href='#'>
+            <button onClick={this.toggleModal}>
               {perso.name}
-            </a>
+            </button>
 
           </li>
         )
@@ -34,11 +40,17 @@ class Personnage extends Component {
 
   render() {
     return (
-      <div className=''>
+      <div className='body'>
         <h2 className='body-title'>Personnages</h2>
         <ul className='body-list'>
           {this.state.personnages}
         </ul>
+       <Modal show={this.state.isOpen}
+         onClose={this.toggleModal}>
+         contenue modal
+       </Modal>
+
+
       </div>
     );
   }

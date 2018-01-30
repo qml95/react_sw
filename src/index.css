@@ -1,18 +1,39 @@
 body {
-  background-color: grey;
+  background-color: white;
 }
 .header {
-  border: 1px solid black;
+
 }
 .header__title {
   text-align: center;
-  color: red;
+  color: #640477;
   font-size: 45px;
 }
 .main-nav {
   list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.main-nav li {
+  margin: 10px;
+  min-width: 100px;
+  text-align: center;
+}
+.main-nav a {
+  display: block;
+  background-color: #640477;
+  border-radius: 3px;
+  padding: 5px;
+  color: #fff;
+}
+.main-nav a:hover {
+  background-color: #962fb5;
 }
 
+.body {
+  min-height: 450px;
+}
 .body-title {
   text-align: center;
   font-size: 25px;
@@ -34,10 +55,7 @@ body {
   text-align: center;
   padding-top: 10px;
 }
-.body {
-  text-align: center;
-}
-
 .footer {
-  border: 1px solid black;
+  font-size: 12px;
+  text-align: center;
 }
