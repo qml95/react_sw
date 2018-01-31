@@ -18,23 +18,23 @@ import Footer from '../components/Footer';
 const navItems = [
   {
     href: '',
-    nat: '',
+    page: 'Home',
     text: 'Home'
   },
   {
     href: '1',
-    nat: '1',
-    text: 'personnage'
+    page: 'people',
+    text: 'Peoples'
   },
   {
     href: '2',
-    nat: '2',
-    text: 'Vaisseaux'
+    page: 'starships',
+    text: 'Starships'
   },
   {
     href: '3',
-    nat: '3',
-    text: 'Planète'
+    page: 'planets',
+    text: 'Planets'
   }
 ]
 
@@ -49,10 +49,10 @@ class Home extends Component {
           navItems={navItems}
         />
         <Switch>
-          <Route exact path="/" component={Accueil} />
-          <Route path="/1" component={Personnage} />
-          <Route path="/2" component={Vaisseaux} />
-          <Route path="/3" component={Planets} />
+          <Route exact path="/Home" component={Accueil} />
+          <Route path="/people" component={Personnage} />
+          <Route path="/starships" component={Vaisseaux} />
+          <Route path="/planets" component={Planets} />
         </Switch>
         <Footer />
       </main>

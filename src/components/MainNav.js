@@ -7,7 +7,7 @@ export const MainNav = ({ navItems }) => {
       (navItem, index) => (
         <li key={index}>
           <MainNavItem
-            nat={navItem.nat}
+            page={navItem.page}
             text={navItem.text}
           />
         </li>

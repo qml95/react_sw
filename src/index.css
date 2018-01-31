@@ -47,14 +47,14 @@ body {
   align-items: center;
 }
 .body-list-item {
-  width: 220px;
-  height: 30px;
+  width: 250px;
+  height: 100px;
   overflow: hidden;
   margin: 15px 5px;
-  border: 1px solid black;
   text-align: center;
   padding-top: 10px;
 }
+
 .footer {
   font-size: 12px;
   text-align: center;

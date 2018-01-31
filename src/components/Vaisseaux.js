@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Modal from './Modal';
 
 
 class Vaisseaux extends Component {
@@ -7,6 +7,8 @@ class Vaisseaux extends Component {
     super();
     this.state = {
       vaisseaux: [],
+      isOpen: false,
+      index: null,
     };
   }
 
@@ -15,27 +17,57 @@ class Vaisseaux extends Component {
     .then(results => {
       return results.json();
     }).then(data => {
-      let vaisseaux = data.results.map((vaiss) => {
-        return (
-          <li
-            className='body-list-item'
-            key={vaiss.name}>
-            <a>{vaiss.name}</a>
-          </li>
-        )
-      })
-      this.setState({vaisseaux: vaisseaux});
+      this.setState({vaisseaux: data.results});
       console.log(data);
     })
   }
 
+  openModal(index) {
+    this.setState({
+      isOpen: true,
+      index: index
+    });
+  }
+
+  closeModal() {
+    this.setState({
+      isOpen: false,
+    });
+  }
+
+  generateVaisseaux() {
+    return this.state.vaisseaux.map((vaisseau, index)=> {
+      return (
+        <li
+          className='body-list-item'
+          key={index}>
+          <p>{vaisseau.name}</p>
+          <button onClick={() => this.openModal(index)} className='bouton-modal'>
+            en savoir plus ..
+          </button>
+        </li>
+      )
+    })
+  }
+
+
   render() {
     return (
       <div className=''>
-        <h2 className='body-title'>Vaisseaux</h2>
+        <h2 className='body-title'>{this.props.match.path.substr(1)}</h2>
         <ul className='body-list'>
-          {this.state.vaisseaux}
+          {this.generateVaisseaux()}
         </ul>
+        <Modal show={this.state.isOpen}
+          onClose={() => this.closeModal()}>
+            {
+              this.state.index &&
+              <div>
+                <h1>{this.state.vaisseaux[this.state.index].name}</h1>
+              </div>
+
+            }
+        </Modal>
       </div>
     );
   }

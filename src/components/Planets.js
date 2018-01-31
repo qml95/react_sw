@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Modal from './Modal';
 
 
 
@@ -7,36 +8,65 @@ class Planets extends Component {
     super();
     this.state = {
       planets: [],
+      isOpen: false,
+      index: null,
     };
   }
 
-  componentDidMount() {
-
+  componentWillMount() {
     fetch('https://swapi.co/api/planets/')
     .then(results => {
       return results.json();
     }).then(data => {
-      let planets = data.results.map((planet) => {
-        return (
+      this.setState({planets: data.results});
+      console.log(data);
+      console.log(this.state);
+    })
+  }
+
+  openModal(index) {
+      this.setState({
+        isOpen: true,
+        index: index,
+      });
+  }
+
+  closeModal() {
+    this.setState({
+      isOpen:false,
+    });
+  }
+
+  generatePlanet() {
+    return this.state.planets.map((planet, index) =>{
+      return (
           <li
             className='body-list-item'
-            key={planet.name}>
-            <a>{planet.name}</a>
+            key={index}>
+            <p>{planet.name}</p>
+            <button onClick={() => this.openModal(index)}>...</button>
           </li>
         )
-      })
-      this.setState({planets: planets});
-      console.log(data);
     })
   }
 
   render() {
     return (
       <div className=''>
-        <h2 className='body-title'>Planets</h2>
+        <h2 className='body-title'>{this.props.match.path.substr(1,)}</h2>
         <ul className='body-list'>
-          {this.state.planets}
+          {this.generatePlanet()}
         </ul>
+        <Modal show={this.state.isOpen}
+          onClose={() => this.closeModal()}>
+            {
+              this.state.index &&
+              <div>
+                <h1>{this.state.planets[this.state.index].name}</h1>
+              </div>
+
+            }
+        </Modal>
       </div>
     );
   }
