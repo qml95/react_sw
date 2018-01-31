@@ -8,7 +8,7 @@ import {
 
 import Header from '../components/Header';
 import Personnage from '../components/Personnage';
-import Vaisseaux from '../components/Vaisseaux';
+// import Vaisseaux from '../components/Vaisseaux';
 import Planets from '../components/Planets';
 import Accueil from '../components/Accueil';
 import Footer from '../components/Footer';
@@ -51,8 +51,8 @@ class Home extends Component {
         <Switch>
           <Route exact path="/Home" component={Accueil} />
           <Route path="/people" component={Personnage} />
-          <Route path="/starships" component={Vaisseaux} />
-          <Route path="/planets" component={Planets} />
+          <Route path="/starships" component={Personnage} />
+          <Route path="/planets" component={Personnage} />
         </Switch>
         <Footer />
       </main>
