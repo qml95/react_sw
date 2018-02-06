@@ -54,7 +54,6 @@ class Personnage extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className='body'>
         <h2 className='body-title'>{this.props.match.path.substr(1)}</h2>

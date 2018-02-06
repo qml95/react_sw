@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 class Modal extends React.Component {
   render() {
+    console.log(this.props)
     if(!this.props.show) {
       return null;
     }
@@ -10,7 +11,7 @@ class Modal extends React.Component {
       <div className="backdrop" >
         <div className="modal">
           {this.props.children}
-
+        
           <div className="footer">
             <button onClick={this.props.onClose}>
               Close

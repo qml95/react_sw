@@ -8,8 +8,6 @@ import {
 
 import Header from '../components/Header';
 import Personnage from '../components/Personnage';
-// import Vaisseaux from '../components/Vaisseaux';
-import Planets from '../components/Planets';
 import Accueil from '../components/Accueil';
 import Footer from '../components/Footer';
 
@@ -18,7 +16,7 @@ import Footer from '../components/Footer';
 const navItems = [
   {
     href: '',
-    page: 'Home',
+    page: '',
     text: 'Home'
   },
   {
@@ -49,7 +47,7 @@ class Home extends Component {
           navItems={navItems}
         />
         <Switch>
-          <Route exact path="/Home" component={Accueil} />
+          <Route exact path="/" component={Accueil} />
           <Route path="/people" component={Personnage} />
           <Route path="/starships" component={Personnage} />
           <Route path="/planets" component={Personnage} />
