@@ -3,15 +3,19 @@ import PropTypes from 'prop-types';
 
 class Modal extends React.Component {
   render() {
-    console.log(this.props)
+    
     if(!this.props.show) {
       return null;
     }
+    let item = this.props.perso
     return (
       <div className="backdrop" >
         <div className="modal">
-          {this.props.children}
-        
+          <h1>{item.name}</h1>
+          <p>{item.gender}</p>
+          <p>{item.starship_class}</p>
+          <p>{item.climate}</p>
+
           <div className="footer">
             <button onClick={this.props.onClose}>
               Close

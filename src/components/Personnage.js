@@ -7,24 +7,28 @@ class Personnage extends Component {
     this.state = {
       personnages: [],
       isOpen: false,
-      index: null
+      perso: {}
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    fetch('https://swapi.co/api'+ nextProps.match.path)
-    .then(results => {
-      return results.json();
-    }).then(data => {
-      this.setState({personnages: data.results});
-      console.log(data);
-    })
+  retrieveData(pathName) {
+    fetch('https://swapi.co/api' + pathName)
+    .then(results => results.json())
+    .then(data => this.setState({personnages: data.results}))
   }
 
-  openModal(index) {
+  componentWillMount() {
+    this.retrieveData(this.props.match.path)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.retrieveData(nextProps.match.path)
+  }
+
+  openModal(perso) {
     this.setState({
       isOpen: true,
-      index: index
+      perso: perso
     });
   }
 
@@ -44,7 +48,10 @@ class Personnage extends Component {
             <p>
               {perso.name}
             </p>
-            <button onClick={() => this.openModal(index)} className='bouton-modal'>
+            <p>
+              {perso.title}
+            </p>
+            <button onClick={() => this.openModal(perso)} className='bouton-modal'>
               En savoir plus..
             </button>
           </div>
@@ -60,19 +67,11 @@ class Personnage extends Component {
         <ul className='body-list'>
           {this.generateList()}
         </ul>
-        <Modal show={this.state.isOpen}
-          onClose={() => this.closeModal()}>
-            {
-              this.state.index &&
-              <div>
-                <h1>{this.state.personnages[this.state.index].name}</h1>
-                <p>{this.state.personnages[this.state.index].gender}</p>
-                <p>{this.state.personnages[this.state.index].starship_class}</p>
-
-              </div>
-
-            }
-        </Modal>
+        <Modal
+          show={this.state.isOpen}
+          onClose={() => this.closeModal()}
+          perso= {this.state.perso}
+        />
       </div>
     );
   }

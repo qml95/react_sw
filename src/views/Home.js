@@ -33,6 +33,11 @@ const navItems = [
     href: '3',
     page: 'planets',
     text: 'Planets'
+  },
+  {
+    href: '4',
+    page: 'films',
+    text: 'Films'
   }
 ]
 
@@ -51,6 +56,7 @@ class Home extends Component {
           <Route path="/people" component={Personnage} />
           <Route path="/starships" component={Personnage} />
           <Route path="/planets" component={Personnage} />
+          <Route path="/films" component={Personnage} />
         </Switch>
         <Footer />
       </main>
